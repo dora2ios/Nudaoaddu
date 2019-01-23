@@ -6,3 +6,6 @@ A7 deviceで発生する、ApNonceの重複生成を起こした乱数を同梱�
 もし他の乱数がある場合は使える可能性が上がるかもしれないので送ってみてください。<br>
 *Required package<br>
 tsschecker
+<br>
+*Credits<br>
+@taichiapple : ApNonceの提供
