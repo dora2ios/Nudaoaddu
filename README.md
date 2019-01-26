@@ -34,16 +34,16 @@
 <p align="center"><strong>iPhone 5s</strong></span></p>
 </td>
 <td>
-<p align="center">Yes</span></p>
+<p align="center">Yes (10.3.3 OTA SEP)</span></p>
 </td>
 <td>
 <p align="center">No</span></p>
 </td>
 <td>
-<p align="center">Yes</span></p>
+<p align="center">Yes (12.1.2 SEP)</span></p>
 </td>
 <td>
-<p align="center">Yes</span></p>
+<p align="center">Yes (12.1.2 SEP)</span></p>
 </td>
 </tr>
 <tr>
@@ -51,16 +51,16 @@
 <p align="center"><strong>iPad mini 2</strong></span></p>
 </td>
 <td>
-<p align="center">Yes</span></p>
+<p align="center">Yes (10.3.3 OTA SEP)</span></p>
 </td>
 <td>
 <p align="center">No</span></p>
 </td>
 <td>
-<p align="center">Probably Yes</span></p>
+<p align="center">Yes?? (12.1.2 SEP)</span></p>
 </td>
 <td>
-<p align="center">Probably Yes</span></p>
+<p align="center">Yes?? (12.1.2 SEP)</span></p>
 </td>
 </tr>
 <tr>
@@ -74,10 +74,10 @@
 <p align="center">No</span></p>
 </td>
 <td>
-<p align="center">Probably Yes</span></p>
+<p align="center">Yes?? (12.1.2 SEP)</span></p>
 </td>
 <td>
-<p align="center">Probably Yes</span></p>
+<p align="center">Yes?? (12.1.2 SEP)</span></p>
 </td>
 </tr>
 <tr>
@@ -85,16 +85,16 @@
 <p align="center"><strong>iPad Air</strong></span></p>
 </td>
 <td>
-<p align="center">Yes</span></p>
+<p align="center">Yes (10.3.3 OTA SEP)</span></p>
 </td>
 <td>
 <p align="center">No</span></p>
 </td>
 <td>
-<p align="center">Probably Yes</span></p>
+<p align="center">Yes?? (12.1.2 SEP)</span></p>
 </td>
 <td>
-<p align="center">Probably Yes</span></p>
+<p align="center">Yes?? (12.1.2 SEP)</span></p>
 </td>
 </tr>
 <tr>
@@ -111,7 +111,7 @@
 <p align="center">unconfirmed</span></p>
 </td>
 <td>
-<p align="center">Probably Yes</span></p>
+<p align="center">Yes?? (12.1.2 SEP)</span></p>
 </td>
 </tr>
 <tr>
@@ -128,7 +128,7 @@
 <p align="center">unconfirmed</span></p>
 </td>
 <td>
-<p align="center">Probably Yes</span></p>
+<p align="center">Yes?? (12.1.2 SEP)</span></p>
 </td>
 </tr>
 <tr>
@@ -145,7 +145,7 @@
 <p align="center">unconfirmed</span></p>
 </td>
 <td>
-<p align="center">Probably Yes</span></p>
+<p align="center">Yes?? (12.1.2 SEP)</span></p>
 </td>
 </tr>
 <tr>
@@ -162,7 +162,7 @@
 <p align="center">unconfirmed</span></p>
 </td>
 <td>
-<p align="center">Probably Yes</span></p>
+<p align="center">Yes?? (12.1.2 SEP)</span></p>
 </td>
 </tr>
 </tbody>
