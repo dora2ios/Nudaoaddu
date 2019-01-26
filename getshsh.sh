@@ -5,7 +5,7 @@
 #   by @dora_ios 2019/01/23
 #
 #   *test environment
-#   *OS                 : OSX 10.10.5 (Yosemite)
+#   *OS                 : OS X 10.10.5 (Yosemite)
 #   *tsschecker version : 62805e474982e78d378fea023c3469ffe7a5d078 - 247
 #
 #   *tsschecker Usage
@@ -115,7 +115,7 @@
 #
 #
 #       *A8 ApNonce List
-#       1a965b264168d077ad438546b09204e1d92d2c8b ## @taichiapple's iPhone6,2
+#       1a965b264168d077ad438546b09204e1d92d2c8b ## @taichiapple's iPhone7,2
 #       7ba89ec4cb77a7aa3be826ea55196d333f444cce
 #       b5992dc8a668fd474969111b9b1ff1997cf01bab
 #       14b656ea957a73a54a406c536266c0102e8cac0a
