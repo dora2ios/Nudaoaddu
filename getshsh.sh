@@ -39,8 +39,8 @@
 #       --print-tss-response
 #       --raw                       send raw file to Apple's tss server (useful for debugging)
 #
-
-#      *ApNonce List
+#
+#       *A7 ApNonce List
 #       03011429dca6e0e1e71cc99716f27d94131d8128 ## @dora_ios's iPhone6,1
 #       7d7bdc28e5eca36dc5bc20c791850f110dc28269
 #       1dedf288afea588e803be0737af7ae5ca87d107f
@@ -75,7 +75,7 @@
 #       8e33f9b17ca3ce754f5e7b4674ff796bc481302f
 #       8659875543cddd64b19873fe6e4b1cf811a2d18f
 #       a0d98fd69e122797ad6fb27376e83d982d321eff
-
+#
 #       caadf840ba58ff6ca21d498e8f8496f7b0a33277 ## @dora_ios's iPhone6,1
 #       4da8b62e458c5b5d280c238ad152ea232e5386f7
 #       99b5e22d771c0f1c81f70c394e9907993a2db435
@@ -96,7 +96,7 @@
 #       dc1879c6b0b065f037943871f27c1ecbc9e48b14
 #       aec09c7811dd02297b80251278608e67d913b74a
 #       6d943452cae56d76aace5e6da62da10f47769aa9
-
+#
 #       ce610744ad24931c96d46b20f47d096b0b27487b ## @taichiapple's iPad4,1
 #       fcd3d819cb3d2c2d043ccdbaeafe6d8938c3ac1d
 #       c067414bc17bc7d65dd036f56b81b522265ba79f
@@ -109,7 +109,55 @@
 #       0648939eac93a33ae5a9d6c4f5703f0baa2e68f3
 #       8b9244eba18e07f3ad9d5eed4f972aa98f0c495e
 #       63e81aabb8e9e45cc756c347e8cdfd9ae7c796ad
+#
+#       a06f39ac30036a94e5d23954f010dbdeeadb8918 ## @rera_sikani's iPhone6,1
+#       994bf71da4fd4ba758a8ec6c943a5a610be02edb
+#
+#
+#       *A8 ApNonce List
+#       1a965b264168d077ad438546b09204e1d92d2c8b ## @taichiapple's iPhone6,2
+#       7ba89ec4cb77a7aa3be826ea55196d333f444cce
+#       b5992dc8a668fd474969111b9b1ff1997cf01bab
+#       14b656ea957a73a54a406c536266c0102e8cac0a
+#       d8befbd5b7c9543b3cc06e1fbfc660486494333f
+#       e456e81cff61251f13f17a183b594d072c603adf
+#       a424cfabe80ab6fac7ab11afe0c36ede4c65476d
+#       44605d9daca26c6211e34d07617104da12bb31e4
+#
+#       031628a41c50425b984b2793d45e60a7fc154f96 ## @iDeviceArchive's iPhone7,2
+#       79febc9d8e400fa1cafa2d94296a11563f3a81f9
+#       cc0eb67aabdbb06e8560af9b9be158cceb6b1f01
+#       3745c3a4248689b17ec6a2e6db0f0b3c82335a73
+#       0c6ec8eb454c40870cd4ef4d89d8c9ccb81d398c
+#       e2d4e40384b69685ef50d56c427f99162d93fb81
+#       315770bd69e2b120598545b15f75942b43b1e644
+#       fe589a290657b8c0b70d02d6fb7f683d2bba26a3
+#       0a475cf24cc2118e9d639f85951c5892e2a5f92e
+#       34d815c62117e351897c3258f9b7eccef292bdb8
+#       2c3eb995241e528dea7952bcbb6a72264a5c6d7f
+#       1954182fa4dd51e26b9daa91893529f65051b499
+#       ee64609cc92597a7655f9930de448593a3bb1ab2
+#       1af3454a672dda5dac9bcd3a8a76cd9164d0e0a3
+#       c6643c49fc40bc0c84abfcc52d1f3347efee910c
+#       c59f236f2da3921879963c4699ae060a6585ee8f
+#
 
+if [ ! -e "tsschecker" ]; then
+    echo "Please put tsschecker."
+    exit
+fi
+
+if [ $# -lt 5 ]; then
+    echo "./getshsh.sh <ios> <device model> <boardconfig> <ecid> <save-path> [-q]"
+    echo ""
+    echo "[OPTION]"
+    echo "-q        : quick mode (This flag is optional)"
+    echo ""
+    echo "example: ./getshsh.sh 11.3.1 iPhone6,1 n51ap 0x12345678 shsh"
+    exit
+fi
+
+if [ $2 = "iPhone6,1" ] || [ $2 = "iPhone6,2" ] || [ $2 = "iPad4,1" ] || [ $2 = "iPad4,2" ] || [ $2 = "iPad4,3" ] || [ $2 = "iPad4,4" ] || [ $2 = "iPad4,5" ] || [ $2 = "iPad4,6" ] || [ $2 = "iPad4,7" ] || [ $2 = "iPad4,8" ] || [ $2 = "iPad4,9" ]; then
 ApNonce='
 03011429dca6e0e1e71cc99716f27d94131d8128
 7d7bdc28e5eca36dc5bc20c791850f110dc28269
@@ -177,48 +225,66 @@ c067414bc17bc7d65dd036f56b81b522265ba79f
 0648939eac93a33ae5a9d6c4f5703f0baa2e68f3
 8b9244eba18e07f3ad9d5eed4f972aa98f0c495e
 63e81aabb8e9e45cc756c347e8cdfd9ae7c796ad
+a06f39ac30036a94e5d23954f010dbdeeadb8918
+994bf71da4fd4ba758a8ec6c943a5a610be02edb
 '
-
-if [ ! -e "tsschecker" ]; then
-    echo "Please put tsschecker."
-    exit
 fi
 
-if [ $# -lt 5 ]; then
-    echo "./getshsh.sh <ios> <device model> <boardconfig> <ecid> <save-path>"
-    echo ""
-    echo "[OPTION]"
-    echo "-q        : quick mode (This flag is optional)"
-    echo "./getshsh.sh <ios> <device model> <boardconfig> <ecid> <save-path> -q"
-    echo ""
-    exit
-else
+if [ $2 = "iPhone7,1" ] || [ $2 = "iPhone7,2" ] || [ $2 = "iPad5,1" ] || [ $2 = "iPad5,2" ] || [ $2 = "iPad5,3" ] || [ $2 = "iPad5,4" ] || [ $2 = "iPod7,1" ]; then
+ApNonce='
+1a965b264168d077ad438546b09204e1d92d2c8b
+7ba89ec4cb77a7aa3be826ea55196d333f444cce
+b5992dc8a668fd474969111b9b1ff1997cf01bab
+14b656ea957a73a54a406c536266c0102e8cac0a
+d8befbd5b7c9543b3cc06e1fbfc660486494333f
+e456e81cff61251f13f17a183b594d072c603adf
+a424cfabe80ab6fac7ab11afe0c36ede4c65476d
+44605d9daca26c6211e34d07617104da12bb31e4
+031628a41c50425b984b2793d45e60a7fc154f96
+79febc9d8e400fa1cafa2d94296a11563f3a81f9
+cc0eb67aabdbb06e8560af9b9be158cceb6b1f01
+3745c3a4248689b17ec6a2e6db0f0b3c82335a73
+0c6ec8eb454c40870cd4ef4d89d8c9ccb81d398c
+e2d4e40384b69685ef50d56c427f99162d93fb81
+315770bd69e2b120598545b15f75942b43b1e644
+fe589a290657b8c0b70d02d6fb7f683d2bba26a3
+0a475cf24cc2118e9d639f85951c5892e2a5f92e
+34d815c62117e351897c3258f9b7eccef292bdb8
+2c3eb995241e528dea7952bcbb6a72264a5c6d7f
+1954182fa4dd51e26b9daa91893529f65051b499
+ee64609cc92597a7655f9930de448593a3bb1ab2
+1af3454a672dda5dac9bcd3a8a76cd9164d0e0a3
+c6643c49fc40bc0c84abfcc52d1f3347efee910c
+c59f236f2da3921879963c4699ae060a6585ee8f
+'
+fi
 
-    if [ $# == 6 ]; then
-        if [ "$6" = "-q" ]; then
-            echo "** Quick Mode"
-            echo "** NonceList"
-            for nonce in ${ApNonce}
-                do
-                    echo "ApNonce: "$nonce""
-                    ./tsschecker -i $1 —d $2 --boardconfig $3 -e $4 --save-path $5 -s --apnonce $nonce 2>/dev/null >/dev/null &
-                done
-            echo ""
-        else
-            echo "Invalid flag"
-        exit
-        fi
 
-    else
+if [ $# == 6 ]; then
+    if [ "$6" = "-q" ]; then
+        echo "** Quick Mode"
         echo "** NonceList"
         for nonce in ${ApNonce}
             do
                 echo "ApNonce: "$nonce""
-                ./tsschecker -i $1 —d $2 --boardconfig $3 -e $4 --save-path $5 -s --apnonce $nonce 2>/dev/null >/dev/null
+                ./tsschecker -i $1 —d $2 --boardconfig $3 -e $4 --save-path $5 -s --apnonce $nonce 2>/dev/null >/dev/null &
             done
         echo ""
-
+    else
+        echo "Invalid flag"
+    exit
     fi
+
+else
+    echo "** NonceList"
+    for nonce in ${ApNonce}
+        do
+            echo "ApNonce: "$nonce""
+            ./tsschecker -i $1 —d $2 --boardconfig $3 -e $4 --save-path $5 -s --apnonce $nonce 2>/dev/null >/dev/null
+        done
+    echo ""
+
+fi
 
 ## Stopper ##
 echo "ApNonce: 05fe405753166f125559e7c9ac558654f107c7e9 (=0x0000000000000000 SHA1)"
@@ -226,4 +292,4 @@ echo "ApNonce: 05fe405753166f125559e7c9ac558654f107c7e9 (=0x0000000000000000 SHA
 
 
 
-fi
+

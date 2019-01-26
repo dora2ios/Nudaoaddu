@@ -8,4 +8,7 @@ A7 deviceで発生する、ApNonceの重複生成を起こした乱数を同梱�
 tsschecker
 <br>
 *Credits<br>
-@taichiapple : ApNonceの提供
+ApNonceの提供<br>
+@taichiapple<br>
+@rera_sikani<br>
+@iDeviceArchive<br>
