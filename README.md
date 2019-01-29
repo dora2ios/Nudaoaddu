@@ -1,5 +1,6 @@
 <h1>Nudaoaddu</h1>
 <p>getshsh.sh - A simple shsh get script.</p>
+<a href="https://diosra2.hatenadiary.jp/entry/20190127/1548522834">Nudaoaddu - A7/A8デバイスを将来的にダウングレードできるようにする。 - diosra2’s blog</a>
 <h2>What is this??</h2>
 <p>It is script for getting shsh2 including dfu apnonce collision on A7/A8.</p>
 <h2>Available Devices</h2>
