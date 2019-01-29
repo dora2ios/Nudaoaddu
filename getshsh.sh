@@ -142,9 +142,17 @@
 #       c59f236f2da3921879963c4699ae060a6585ee8f
 #
 
-if [ ! -e "tsschecker" ]; then
-    echo "Please put tsschecker."
+if [ ! -e "/usr/local/bin/tsschecker" ]; then
+    echo "Cannot find tsschecker binary in /usr/local/bin/"
+elif [ -e "/usr/local/bin/tsschecker" ]; then
+    echo "Found tsschecker in /usr/local/bin/"
+    TSS=/usr/local/bin/tsschecker
+elif [ ! -e "tsschecker" ]; then
+    echo "Error: Cannot find tsschecker binary. Please put tsschecker in project directory."
     exit
+elif [ -e "tsschecker" ]; then
+    echo "Found tsschecker in project directory"
+    TSS=./tsschecker
 fi
 
 if [ $# -lt 5 ]; then
@@ -267,7 +275,7 @@ if [ $# == 6 ]; then
         for nonce in ${ApNonce}
             do
                 echo "ApNonce: "$nonce""
-                ./tsschecker -i $1 —d $2 --boardconfig $3 -e $4 --save-path $5 -s --apnonce $nonce 2>/dev/null >/dev/null &
+                $TSS -i $1 —d $2 --boardconfig $3 -e $4 --save-path $5 -s --apnonce $nonce 2>/dev/null >/dev/null &
             done
         echo ""
     else
@@ -280,7 +288,7 @@ else
     for nonce in ${ApNonce}
         do
             echo "ApNonce: "$nonce""
-            ./tsschecker -i $1 —d $2 --boardconfig $3 -e $4 --save-path $5 -s --apnonce $nonce 2>/dev/null >/dev/null
+            $TSS -i $1 —d $2 --boardconfig $3 -e $4 --save-path $5 -s --apnonce $nonce 2>/dev/null >/dev/null
         done
     echo ""
 
@@ -288,7 +296,7 @@ fi
 
 ## Stopper ##
 echo "ApNonce: 05fe405753166f125559e7c9ac558654f107c7e9 (=0x0000000000000000 SHA1)"
-./tsschecker -i $1 —d $2 --boardconfig $3 -e $4 --save-path $5 -s --apnonce 05fe405753166f125559e7c9ac558654f107c7e9
+$TSS -i $1 —d $2 --boardconfig $3 -e $4 --save-path $5 -s --apnonce 05fe405753166f125559e7c9ac558654f107c7e9
 
 
 
