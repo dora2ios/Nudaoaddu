@@ -142,17 +142,12 @@
 #       c59f236f2da3921879963c4699ae060a6585ee8f
 #
 
-if [ ! -e "/usr/local/bin/tsschecker" ]; then
-    echo "Cannot find tsschecker binary in /usr/local/bin/"
-elif [ -e "/usr/local/bin/tsschecker" ]; then
-    echo "Found tsschecker in /usr/local/bin/"
-    TSS=/usr/local/bin/tsschecker
-elif [ ! -e "tsschecker" ]; then
-    echo "Error: Cannot find tsschecker binary. Please put tsschecker in project directory."
+
+if [ ! -z $(command -v tsschecker) ]; then
+    TSS=$(command -v tsschecker)
+elif [ -z $(command -v tsschecker) ]; then
+    echo "Error: Cannot find tsschecker binary. Please install tsschecker and add it to your PATH"
     exit
-elif [ -e "tsschecker" ]; then
-    echo "Found tsschecker in project directory"
-    TSS=./tsschecker
 fi
 
 if [ $# -lt 5 ]; then
