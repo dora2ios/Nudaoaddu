@@ -142,8 +142,11 @@
 #       c59f236f2da3921879963c4699ae060a6585ee8f
 #
 
-if [ ! -e "tsschecker" ]; then
-    echo "Please put tsschecker."
+
+if [ ! -z $(command -v tsschecker) ]; then
+    TSS=$(command -v tsschecker)
+elif [ -z $(command -v tsschecker) ]; then
+    echo "Error: Cannot find tsschecker binary. Please install tsschecker and add it to your PATH"
     exit
 fi
 
@@ -267,7 +270,7 @@ if [ $# == 6 ]; then
         for nonce in ${ApNonce}
             do
                 echo "ApNonce: "$nonce""
-                ./tsschecker -i $1 —d $2 --boardconfig $3 -e $4 --save-path $5 -s --apnonce $nonce 2>/dev/null >/dev/null &
+                $TSS -i $1 —d $2 --boardconfig $3 -e $4 --save-path $5 -s --apnonce $nonce 2>/dev/null >/dev/null &
             done
         echo ""
     else
@@ -280,7 +283,7 @@ else
     for nonce in ${ApNonce}
         do
             echo "ApNonce: "$nonce""
-            ./tsschecker -i $1 —d $2 --boardconfig $3 -e $4 --save-path $5 -s --apnonce $nonce 2>/dev/null >/dev/null
+            $TSS -i $1 —d $2 --boardconfig $3 -e $4 --save-path $5 -s --apnonce $nonce 2>/dev/null >/dev/null
         done
     echo ""
 
@@ -288,7 +291,7 @@ fi
 
 ## Stopper ##
 echo "ApNonce: 05fe405753166f125559e7c9ac558654f107c7e9 (=0x0000000000000000 SHA1)"
-./tsschecker -i $1 —d $2 --boardconfig $3 -e $4 --save-path $5 -s --apnonce 05fe405753166f125559e7c9ac558654f107c7e9
+$TSS -i $1 —d $2 --boardconfig $3 -e $4 --save-path $5 -s --apnonce 05fe405753166f125559e7c9ac558654f107c7e9
 
 
 
