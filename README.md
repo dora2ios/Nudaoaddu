@@ -2,7 +2,8 @@ Saving iOS 12.4 SHSH2 using DFU apnonce collision at A7 (DFU defect)
 macOS 10.13 (or later)  
   
 HOW TO USE  
-Run the following script with the device connected in DFU mode.
+Run the following script with the device connected in DFU mode.  
+
 ./get.sh [device] [boardconfig]  
 
 Example  
