@@ -163,7 +163,7 @@ for nonce in ${ApNonce}
 do
   #echo "saving apnonce = "$nonce"..."
   ./tsschecker -d $1 -B $2 -s -e $ecid -m ""$1"_"$2"_12.4.plist" --save-path shsh2/ --apnonce $nonce 2>/dev/null >/dev/null
-  if [ -e ""$ecid"_"$1"_"$2"_12.4-16G77_"$nonce".shsh2" ]; then
+  if [ -e "shsh2/"$ecid"_"$1"_"$2"_12.4-16G77_"$nonce".shsh2" ]; then
     echo "[SUCCESS] saved apnonce = "$nonce""
   else
     echo "[FAILED] not saved apnonce = "$nonce""
