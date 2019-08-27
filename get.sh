@@ -1,6 +1,5 @@
 #!/bin/bash
 echo "**** Saving iOS 12.4 SHSH2 using DFU apnonce collision at A7 (DFU defect) ****"
-
 if [ $# -gt 3 ]; then
   echo "[ERROR] Too many arguments"
   exit
@@ -150,7 +149,6 @@ fi
 mv -v BuildManifest.plist ""$1"_"$2"_12.4.plist"
 
 #igetnonce
-#igetnonce
 ret=$(bin/igetnonce 2>/dev/null | grep ECID)
 ecidhex=$(echo $ret | cut -d '=' -f 2 )
 ecidhex2=$(echo $ecidhex | tr '[:lower:]' '[:upper:]')
@@ -164,7 +162,7 @@ echo "** NonceList"
 for nonce in ${ApNonce}
 do
   #echo "saving apnonce = "$nonce"..."
-  ./tsschecker -d $1 -B $2 -s -e $ecid -m ""$1"_"$2"_12.4.plist" --apnonce $nonce 2>/dev/null >/dev/null
+  ./tsschecker -d $1 -B $2 -s -e $ecid -m ""$1"_"$2"_12.4.plist" --save-path shsh2/ --apnonce $nonce 2>/dev/null >/dev/null
   if [ -e ""$ecid"_"$1"_"$2"_12.4-16G77_"$nonce".shsh2" ]; then
     echo "[SUCCESS] saved apnonce = "$nonce""
   else
@@ -172,8 +170,8 @@ do
   fi
 done
 
-./tsschecker -d $1 -B $2 -s -e $ecid -m ""$1"_"$2"_12.4.plist" --generator 0x1111111111111111 2>/dev/null >/dev/null
-./tsschecker -d $1 -B $2 -s -e $ecid -m ""$1"_"$2"_12.4.plist" --generator 0xbd34a880be0b53f3 2>/dev/null >/dev/null
+./tsschecker -d $1 -B $2 -s -e $ecid -m ""$1"_"$2"_12.4.plist" --save-path shsh2/ --generator 0x1111111111111111 2>/dev/null >/dev/null
+./tsschecker -d $1 -B $2 -s -e $ecid -m ""$1"_"$2"_12.4.plist" --save-path shsh2/ --generator 0xbd34a880be0b53f3 2>/dev/null >/dev/null
 
 echo "Done"
 rm ""$1"_"$2"_12.4.plist"
