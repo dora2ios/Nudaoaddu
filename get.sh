@@ -81,6 +81,16 @@ c067414bc17bc7d65dd036f56b81b522265ba79f
 63e81aabb8e9e45cc756c347e8cdfd9ae7c796ad
 a06f39ac30036a94e5d23954f010dbdeeadb8918
 994bf71da4fd4ba758a8ec6c943a5a610be02edb
+c1b22dd6b0531773fd8ae01ba2b72fda38b16cda
+21e0110ab8a9196aa851072e4aebf41571082612
+76e240fd1af3270e25f0b3c800ef1dbaf9d29de6
+f72dbc3917fc6d4234915c9f01e882086991ce44
+a7c5f8c66e72ed8481d7dc0bfc0363207c800cf9
+bc8e18c024cd4d130b4af0031b6fa80ab07bc43c
+abd8bfcfc3dcb4e8eabfdb57b30b6978e27bf819
+99a7b1ba5977d6c112717cc208a41785aaa7a313
+1166fc08241bbd4f26d495a892958c05d660a45f
+70bbffa807a66b2a1a3a017d233b0c9f874e6be3
 '
 
 if [ $1 = "iPhone6,1" ]&&[ $2 = "n51ap" ];then
@@ -162,7 +172,12 @@ echo "** NonceList"
 for nonce in ${ApNonce}
 do
   #echo "saving apnonce = "$nonce"..."
-  ./tsschecker -d $1 -B $2 -s -e $ecid -m ""$1"_"$2"_12.4.plist" --save-path shsh2/ --apnonce $nonce 2>/dev/null >/dev/null
+  if [ -e "shsh2/"$ecid"_"$1"_"$2"_12.4-16G77_"$nonce".shsh2" ]; then
+    echo "[SKIP] Already exist shsh2 (apnonce = "$nonce")"
+  else
+    ./tsschecker -d $1 -B $2 -s -e $ecid -m ""$1"_"$2"_12.4.plist" --save-path shsh2/ --apnonce $nonce 2>/dev/null >/dev/null
+  fi
+
   if [ -e "shsh2/"$ecid"_"$1"_"$2"_12.4-16G77_"$nonce".shsh2" ]; then
     echo "[SUCCESS] saved apnonce = "$nonce""
   else
