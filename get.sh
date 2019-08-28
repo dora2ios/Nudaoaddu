@@ -149,14 +149,16 @@ url="http://updates-http.cdn-apple.com/2019SummerFCS/fullrestores/041-86554/9E08
 fi
 
 # pzb
-bin/partialZipBrowser -g BuildManifest.plist $url
-
-if [ ! -e "BuildManifest.plist" ]; then
-  echo "[ERROR] Failed download BuildManifest.plist"
-  exit
+if [ -e "fw/"$1"_"$2"_12.4.plist" ]; then
+  echo "[SKIP] Already exist BuildManifest"
+else
+  bin/partialZipBrowser -g BuildManifest.plist $url
+  if [ ! -e "BuildManifest.plist" ]; then
+    echo "[ERROR] Failed download BuildManifest.plist"
+    exit
+  fi
+  mv -v BuildManifest.plist "fw/"$1"_"$2"_12.4.plist"
 fi
-
-mv -v BuildManifest.plist ""$1"_"$2"_12.4.plist"
 
 #igetnonce
 ret=$(bin/igetnonce 2>/dev/null | grep ECID)
@@ -175,7 +177,7 @@ do
   if [ -e "shsh2/"$ecid"_"$1"_"$2"_12.4-16G77_"$nonce".shsh2" ]; then
     echo "[SKIP] Already exist shsh2 (apnonce = "$nonce")"
   else
-    ./tsschecker -d $1 -B $2 -s -e $ecid -m ""$1"_"$2"_12.4.plist" --save-path shsh2/ --apnonce $nonce 2>/dev/null >/dev/null
+    ./tsschecker -d $1 -B $2 -s -e $ecid -m "fw/"$1"_"$2"_12.4.plist" --save-path shsh2/ --apnonce $nonce 2>/dev/null >/dev/null
     if [ -e "shsh2/"$ecid"_"$1"_"$2"_12.4-16G77_"$nonce".shsh2" ]; then
       echo "[SUCCESS] saved apnonce = "$nonce""
     else
@@ -185,8 +187,7 @@ do
 
 done
 
-./tsschecker -d $1 -B $2 -s -e $ecid -m ""$1"_"$2"_12.4.plist" --save-path shsh2/ --generator 0x1111111111111111 2>/dev/null >/dev/null
-./tsschecker -d $1 -B $2 -s -e $ecid -m ""$1"_"$2"_12.4.plist" --save-path shsh2/ --generator 0xbd34a880be0b53f3 2>/dev/null >/dev/null
+./tsschecker -d $1 -B $2 -s -e $ecid -m "fw/"$1"_"$2"_12.4.plist" --save-path shsh2/ --generator 0x1111111111111111 2>/dev/null >/dev/null
+./tsschecker -d $1 -B $2 -s -e $ecid -m "fw/"$1"_"$2"_12.4.plist" --save-path shsh2/ --generator 0xbd34a880be0b53f3 2>/dev/null >/dev/null
 
 echo "Done"
-rm ""$1"_"$2"_12.4.plist"

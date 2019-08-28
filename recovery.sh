@@ -131,6 +131,9 @@ if [ $reg = $rec ]; then
 echo "Enter Recovery Mode!!"
 bin/irecovery -c "bgcolor 255 0 255" >/dev/null
 fi
+echo ""
+echo "Tickets that your device uses for futurerestore."
+echo "SHSH2: \"shsh2/"$ecid"_"$1"_"$2"_12.4-16G77_"$nonce".shsh2\""
 
 rm ibss.signed
 rm ibec.signed
